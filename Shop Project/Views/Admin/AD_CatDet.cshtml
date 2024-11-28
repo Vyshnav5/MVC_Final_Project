@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Category>;
+
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+
+}
+<a asp-controller="Admin" asp-action="AD_CatoReg">Register</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>        
+            <th>
+                Catogory
+             </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+              
+                <td>
+                    @Html.DisplayFor(modelItem => item.C_name)
+                </td>
+                <td>
+                    <a asp-action="AD_Cat_Edit" asp-controller="Admin" asp-route-id="@item.C_id">Edit</a>
+                    <a asp-action="AD_Cat_Delete" asp-route-id="@item.C_id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>

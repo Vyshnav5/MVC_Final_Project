@@ -1,0 +1,56 @@
+﻿@model PaginatedList<Expense>
+
+@{
+    Layout = "~/Views/Shared/Shop_Layout.cshtml";
+
+}
+<a asp-controller="Shop" asp-action="Sh_exp">Register</a>
+<form method="post">
+</form>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                Type
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Amount
+            </th>
+            
+           <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ex_type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ex_date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ex_amount)
+                </td>
+      
+            </tr>
+        }
+    </tbody>
+
+
+</table>
+
+@{
+    var preDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<a action="View_reg" asp-route-pageNumber="@(Model.PageIndex-1)" class="btn btn-outline-danger @preDisabled">
+    Previous
+</a>
+<a action="View_reg" asp-route-pageNumber="@(Model. PageIndex+1)" class="btn btn-outline-danger @nextDisabled">
+    Next
+</a>
