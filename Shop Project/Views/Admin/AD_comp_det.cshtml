@@ -1,0 +1,43 @@
+﻿@model PaginatedList2<View2>
+
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h1>Complaint Details</h1>
+
+
+<table class="table table-bordered table-hover mt-3">
+    <thead>
+        <tr>
+           
+            <th>Location</th>
+           
+            <th>Description</th>
+            <th>Reply</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+      
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.S_location)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Cm_description)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Cm_reply)</td>
+                    <td>
+                        <a asp-controller="Admin" asp-action="AD_Com_reply" asp-route-id="@item.Cm_id" class="btn btn-secondary">Reply</a>
+                    </td>
+                </tr>
+            }
+       
+    </tbody>
+</table>
+
+@{
+    var preDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<a asp-action="AD_comp_det" asp-route-pageNumber="@(Model.PageIndex - 1)" class="btn btn-outline-primary @preDisabled">Previous</a>
+<a asp-action="AD_comp_det" asp-route-pageNumber="@(Model.PageIndex + 1)" class="btn btn-outline-primary @nextDisabled">Next</a>

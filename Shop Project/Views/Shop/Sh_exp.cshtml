@@ -1,0 +1,34 @@
+﻿@model Expense
+
+@{
+    Layout = "~/Views/Shared/Shop_Layout.cshtml";
+    var s_id = Context.Session.GetInt32("S_id");
+}
+
+<h1>Create</h1>
+<a class="btn btn-info" asp-controller="Shop" asp-action="Sh_Exp_det">View</a>
+<form method="post" class="row g-3">
+    <input type="hidden" asp-for="S_id" value="@s_id" />
+
+    <div class="col-md-8">
+        <label asp-for="Ex_type" class="form-label">Type</label>
+        <input asp-for="Ex_type" class="form-control" id="Type" required />
+        <span asp-validation-for="Ex_type" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-8">
+        <label asp-for="Ex_date" class="form-label">Date</label>
+        <input asp-for="Ex_date" type="date" class="form-control" id="Date" required />
+        <span asp-validation-for="Ex_date" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-8">
+        <label asp-for="Ex_amount" class="form-label">Amount</label>
+        <input asp-for="Ex_amount" class="form-control" id="Amount" required />
+        <span asp-validation-for="Ex_amount" class="text-danger"></span>
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary" asp-controller="Shop" asp-action="Sh_exp">Submit</button>
+    </div>
+</form>

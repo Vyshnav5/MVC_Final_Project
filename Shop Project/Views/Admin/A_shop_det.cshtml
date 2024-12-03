@@ -1,0 +1,36 @@
+﻿@model IEnumerable<LogShop>
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h2>Shop Details</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Location</th>
+            <th>PH</th>
+            <th>Email</th>
+            <th>ShopCode</th>
+            <th>Password</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.S_location)</td>
+                <td>@Html.DisplayFor(modelItem => item.S_PH)</td>
+                <td>@Html.DisplayFor(modelItem => item.S_Email)</td>
+                <td>@Html.DisplayFor(modelItem => item.S_shopcode)</td>
+                <td>@Html.DisplayFor(modelItem => item.S_Password)</td>
+
+                <td>
+                    <a asp-action="AS_Edit" asp-controller="Admin" asp-route-id="@item.S_id">Edit</a>
+                    <a asp-action="AS_Delete" asp-controller="Admin" asp-route-id="@item.S_id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

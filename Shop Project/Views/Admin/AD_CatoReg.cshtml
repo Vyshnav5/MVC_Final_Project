@@ -1,0 +1,20 @@
+﻿@model Category
+
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h1>Create</h1>
+<form method="post" class="row g-3">
+    <div class="col-md-6">
+        <label asp-for="C_name" class="form-label">Title</label>
+        <input asp-for="C_name" class="form-control" />
+        <span asp-validation-for="C_name" class="text-danger"></span>
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary" asp-controller="Admin" asp-action="AD_CatoReg">Submit</button>
+    </div>
+</form>
+
+

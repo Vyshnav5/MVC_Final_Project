@@ -1,0 +1,62 @@
+﻿@model PaginatedList2<View2>
+
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h1>Order Details</h1>
+<form method="post" asp-action="AD_exp_det">
+    <div class="row">
+        <div class="col-6"></div>
+      
+        <div class="col-4">
+            <input type="date" name="O_date" class="form-control" placeholder="Search by Date" />
+        </div>
+        <div class="col-2">
+            <button type="submit" asp-controller="Admin" asp-action="AD_order_det" class="btn btn-primary">Search</button>
+        </div>
+    </div>
+</form>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Shop ID</th>
+            <th>Location</th>
+            <th>Order ID</th>
+            <th>Order Date</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.S_id)</td>
+                <td>@Html.DisplayFor(modelItem => item.S_location)</td>
+                <td>@Html.DisplayFor(modelItem => item.O_id)</td>
+                <td>@Html.DisplayFor(modelItem => item.O_date)</td>
+                <td>@Html.DisplayFor(modelItem => item.P_name)</td>
+                <td>@Html.DisplayFor(modelItem => item.O_quantity)</td>
+                <td>@Html.DisplayFor(modelItem => item.O_status)</td>
+                <td>
+                    <form method="post" asp-action="AD_Order_accep" asp-route-id="@item.O_id">
+                        <button type="submit" class="btn btn-success">Accept</button>
+                    </form>
+                    <form method="post" asp-action="AD_Order_rej" asp-route-id="@item.O_id" class="d-inline">
+                        <button type="submit" class="btn btn-danger">Reject</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    var preDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<a asp-action="AD_order_det" asp-route-pageNumber="@(Model.PageIndex - 1)" class="btn btn-outline-primary @preDisabled">Previous</a>
+<a asp-action="AD_order_det" asp-route-pageNumber="@(Model.PageIndex + 1)" class="btn btn-outline-primary @nextDisabled">Next</a>

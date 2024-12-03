@@ -1,0 +1,33 @@
+﻿@model Order
+
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h1>Accept Order</h1>
+
+<form method="post" asp-action="AD_Order_accep">
+    <input type="hidden" asp-for="O_id" />
+
+    <div class="form-group">
+        <label asp-for="S_id" class="form-label">Shop ID</label>
+        <input asp-for="S_id" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="O_date" class="form-label">Order Date</label>
+        <input asp-for="O_date" class="form-control" readonly />
+    </div>
+   
+    <div class="form-group">
+        <label asp-for="O_quantity" class="form-label">Quantity</label>
+        <input asp-for="O_quantity" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="O_status" class="form-label">Status</label>
+        <input value="Order Rejected" asp-for="O_status" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <button type="submit" asp-controller="Admin" asp-action="AD_Order_acc_rej" class="btn btn-success">Accept Order</button>
+    </div>
+</form>

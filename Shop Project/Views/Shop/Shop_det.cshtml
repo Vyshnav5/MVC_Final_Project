@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Shop_details>;
+@{
+    Layout = "~/Views/Shared/Shop_Layout.cshtml";
+
+}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Location
+            </th>
+            <th>
+                PH
+            </th>
+            <th>
+                Email
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.S_location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.S_PH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.S_Email)
+                </td>
+                <td>
+                    <a asp-action="Sh_Edit" asp-controller="Admin" asp-route-id="@item.S_id">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>

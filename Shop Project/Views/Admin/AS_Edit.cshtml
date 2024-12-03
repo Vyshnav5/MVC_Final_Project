@@ -1,0 +1,38 @@
+﻿@model Shop_details
+
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+
+}
+<hr />
+<h1>Shop Details</h1><a class="btn btn-info " asp-controller="Admin" asp-action="A_shop_det">View</a>
+<form method="post" class="row g-3">
+    <input type="hidden" asp-for="S_id" />
+
+    <div class="col-md-8">
+
+        <label asp-for="S_location" for="Name" class="form-label">Location</label>
+        <input asp-for="S_location" class="form-control" id="Name">
+        <span asp-validation-for="S_location" class="text-danger"></span>
+    </div>
+    <div class="col-md-8">
+
+        <label asp-for="S_PH" for="Name" class="form-label">PH</label>
+        <input asp-for="S_PH" class="form-control" id="Name">
+        <span asp-validation-for="S_PH" class="text-danger"></span>
+
+    </div>
+    <div class="col-md-8">
+
+        <label asp-for="S_Email" for="Name" class="form-label">Email</label>
+        <input asp-for="S_Email" class="form-control" id="Name">
+        <span asp-validation-for="S_Email" class="text-danger"></span>
+
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary" asp-controller="Admin" asp-action="AS_Edit1">Edit</button>
+    </div>
+
+</form>
+
