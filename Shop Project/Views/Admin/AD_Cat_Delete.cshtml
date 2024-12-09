@@ -1,0 +1,17 @@
+﻿@model Category
+
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+
+}
+<h1>Create</h1>
+<form method="post" class="row g-3">
+    <div class="col-md-6">
+        <label asp-for="C_name" for="Name" class="form-label">title</label>
+        <input asp-for="C_name" class="form-control" id="Name">
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary" asp-controller="Admin" asp-action="AD_Cat_Delete">Delete</button>
+    </div>
+</form>

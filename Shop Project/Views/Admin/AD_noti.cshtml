@@ -1,0 +1,23 @@
+﻿@model Notification
+
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h1>Create</h1>
+<form method="post" class="row g-3">
+    <div class="col-md-6">
+        <label asp-for="N_description" class="form-label">Notification</label>
+        <input asp-for="N_description" class="form-control" id="Name" />
+        <span asp-validation-for="N_description" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="N_date" class="form-label">Date</label>
+        <input asp-for="N_date" type="date" class="form-control" id="date" />
+        <span asp-validation-for="N_date" class="text-danger"></span>
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary" asp-controller="Admin" asp-action="AD_noti">Submit</button>
+    </div>
+</form>

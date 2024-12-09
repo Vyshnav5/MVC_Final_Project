@@ -1,0 +1,43 @@
+﻿@model Employee
+
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h1>Create</h1><a class="btn btn-info" asp-controller="Admin" asp-action="AD_Emp_det">View</a>
+<form method="post" class="row g-3">
+    <div class="form-group">
+        <label asp-for="S_id" class="control-label">Shop</label>
+        <select asp-for="S_id" asp-items="@(new SelectList(ViewBag.message, "S_id", "S_location"))" class="form-control"></select>
+        <span asp-validation-for="S_id" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-8">
+        <label asp-for="E_name" class="form-label">Name</label>
+        <input asp-for="E_name" class="form-control" />
+        <span asp-validation-for="E_name" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-8">
+        <label asp-for="E_ph" class="form-label">Phone</label>
+        <input asp-for="E_ph" class="form-control" />
+        <span asp-validation-for="E_ph" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-8">
+        <label asp-for="E_email" class="form-label">Email</label>
+        <input asp-for="E_email" class="form-control" />
+        <span asp-validation-for="E_email" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-8">
+        <label asp-for="E_position" class="form-label">Position</label>
+        <input asp-for="E_position" class="form-control" />
+        <span asp-validation-for="E_position" class="text-danger"></span>
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary" asp-controller="Admin" asp-action="AD_Emp_Reg">Submit</button>
+    </div>
+</form>
+

@@ -1,0 +1,44 @@
+﻿@model LogShop
+
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h1>Registration</h1>
+<a class="btn btn-info" asp-controller="Admin" asp-action="A_shop_det">View</a>
+<form method="post" class="row g-3">
+    <input type="hidden" asp-for="S_type" value="Shop" />
+    <div class="col-md-6">
+        <label asp-for="S_location" class="form-label">Location</label>
+        <input asp-for="S_location" class="form-control" />
+        <span asp-validation-for="S_location" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="S_shopcode" class="form-label">Shop Code</label>
+        <input asp-for="S_shopcode" class="form-control" />
+        <span asp-validation-for="S_shopcode" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="S_PH" class="form-label">PH</label>
+        <input asp-for="S_PH" class="form-control" />
+        <span asp-validation-for="S_PH" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="S_Email" class="form-label">Email</label>
+        <input asp-for="S_Email" class="form-control" />
+        <span asp-validation-for="S_Email" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="S_Password" class="form-label">Password</label>
+        <input asp-for="S_Password" type="password" class="form-control" />
+        <span asp-validation-for="S_Password" class="text-danger"></span>
+    </div>
+    <div class="col-12">
+        <button type="submit" asp-controller="Admin" asp-action="A_Shop_Reg" class="btn btn-primary">
+            Submit
+        </button>
+    </div>
+</form>
+
+
+

@@ -1,0 +1,37 @@
+﻿@model Order
+
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h1>Accept Order</h1>
+
+<form method="post" asp-action="AD_Order_accep">
+    <input type="hidden" asp-for="O_id" />
+    <div class="form-group">
+        <label asp-for="P_id" class="control-label">Product</label>
+        <select asp-for="P_id" class="form-control" asp-items="@(new SelectList(ViewBag.ProductList, "P_id", "P_name"))" required></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="S_id" class="control-label">Shop</label>
+        <select asp-for="S_id" asp-items="@(new SelectList(ViewBag.message, "S_id", "S_location"))" class="form-control"></select>
+    </div>
+  
+    <div class="form-group">
+        <label asp-for="O_date" class="form-label">Order Date</label>
+        <input asp-for="O_date" class="form-control" readonly />
+    </div>
+ 
+    <div class="form-group">
+        <label asp-for="O_quantity" class="form-label">Quantity</label>
+        <input asp-for="O_quantity" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="O_status" class="form-label">Status</label>
+        <input value="Order Accepted" asp-for="O_status" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <button type="submit" asp-controller="Admin" asp-action="AD_Order_acc_rej" class="btn btn-success">Accept Order</button>
+    </div>
+</form>

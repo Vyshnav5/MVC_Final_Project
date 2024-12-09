@@ -1,0 +1,48 @@
+﻿@model PaginatedList2<View1>
+
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h1>Expense Details</h1>
+<form method="post" asp-action="AD_exp_det">
+    <div class="row">
+        <div class="col-6"></div>
+        <div class="col-4">
+            <input type="text" name="S_location" class="form-control" placeholder="Search by Shop" />
+        </div>
+        <div class="col-2">
+            <button type="submit" asp-controller="Admin" asp-action="AD_exp_det" class="btn btn-primary">Search</button>
+        </div>
+       
+    </div>
+</form>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Location</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.S_location)</td>
+                <td>@Html.DisplayFor(modelItem => item.Ex_type)</td>
+                <td>@Html.DisplayFor(modelItem => item.Ex_amount)</td>
+                <td>@Html.DisplayFor(modelItem => item.Ex_date)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    var preDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<a asp-action="AD_exp_det" asp-route-pageNumber="@(Model.PageIndex - 1)" class="btn btn-outline-primary @preDisabled">Previous</a>
+<a asp-action="AD_exp_det" asp-route-pageNumber="@(Model.PageIndex + 1)" class="btn btn-outline-primary @nextDisabled">Next</a>

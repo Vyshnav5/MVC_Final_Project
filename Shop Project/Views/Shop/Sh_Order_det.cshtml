@@ -1,0 +1,36 @@
+﻿@model PaginatedList2<View2>
+
+@{
+    Layout = "~/Views/Shared/Shop_Layout.cshtml";
+}
+
+<a asp-controller="Shop" asp-action="Sh_order" class="btn btn-primary">Place Order</a>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Order Date</th>
+            <th>Quantity</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.P_name)</td>
+                <td>@Html.DisplayFor(modelItem => item.O_date)</td>
+                <td>@Html.DisplayFor(modelItem => item.O_quantity)</td>
+                <td>@Html.DisplayFor(modelItem => item.O_status)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    var preDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex - 1)" class="btn btn-outline-primary @preDisabled">Previous</a>
+<a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex + 1)" class="btn btn-outline-primary @nextDisabled">Next</a>

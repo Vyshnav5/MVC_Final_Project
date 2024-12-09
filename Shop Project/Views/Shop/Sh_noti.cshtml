@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Notification>;
+
+@{
+    Layout = "~/Views/Shared/Shop_Layout.cshtml";
+
+}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Notifications
+            </th>
+
+            <th>
+                Date
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.N_description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.N_date)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

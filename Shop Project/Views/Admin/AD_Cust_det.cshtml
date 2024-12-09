@@ -1,0 +1,47 @@
+﻿@model PaginatedList<Customer>;
+
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+
+}
+<a asp-controller="Admin" asp-action="AD_Cust_det">Register</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                NAME
+            </th>
+            <th>
+                PH
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cu_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cu_ph)
+                </td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>
+
+@{
+    var preDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<a action="View_reg" asp-route-pageNumber="@(Model.PageIndex-1)" class="btn btn-outline-danger @preDisabled">
+    Previous
+</a>
+<a action="View_reg" asp-route-pageNumber="@(Model. PageIndex+1)" class="btn btn-outline-danger @nextDisabled">
+    Next
+</a>

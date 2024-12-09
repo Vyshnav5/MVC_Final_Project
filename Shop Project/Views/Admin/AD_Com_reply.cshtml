@@ -1,0 +1,25 @@
+﻿@model Complaint
+
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h1>Reply to Complaint</h1>
+
+<form method="post" asp-action="AD_Com_reply">
+    <input type="hidden" asp-for="Cm_id" />
+
+    <div class="form-group">
+        <label asp-for="Cm_description" class="form-label">Description</label>
+        <textarea asp-for="Cm_description" class="form-control" readonly></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Cm_reply" class="form-label">Reply</label>
+        <textarea asp-for="Cm_reply" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" asp-controller="Admin" asp-action="AD_Com_reply" class="btn btn-primary">Submit Reply</button>
+    </div>
+</form>

@@ -1,0 +1,36 @@
+﻿@model Employee
+
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+
+}
+<h1>Create</h1><a class="btn btn-info " asp-controller="Admin" asp-action="AD_Emp_det">View</a>
+<form method="post" class="row g-3">
+
+    <div class="col-md-8">
+
+        <label asp-for="E_name" for="Name" class="form-label">NAME</label>
+        <input asp-for="E_name" class="form-control" id="Name">
+    </div>
+    <div class="col-md-8">
+
+        <label asp-for="E_ph" for="price" class="form-label">PH</label>
+        <input asp-for="E_ph" class="form-control" id="PH">
+    </div>
+    <div class="col-md-8">
+
+        <label asp-for="E_email" for="Email" class="form-label">Email</label>
+        <input asp-for="E_email" class="form-control" id="Email">
+    </div>
+    <div class="col-md-8">
+
+        <label asp-for="E_position" for="Position" class="form-label">Position</label>
+        <input asp-for="E_position" class="form-control" id="Position">
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary" asp-controller="Admin" asp-action="AE_Delete">Delete</button>
+    </div>
+
+</form>
+

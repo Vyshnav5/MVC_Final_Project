@@ -1,0 +1,43 @@
+﻿@model Employee
+
+@{
+    Layout = "~/Views/Shared/Shop_Layout.cshtml";
+
+}
+<h1>Create</h1><a class="btn btn-info " asp-controller="Shop" asp-action="Sh_Emp_det">View</a>
+<form method="post" class="row g-3">
+    <input type="hidden" asp-for="E_id" />
+
+    <div class="form-group">
+        <label asp-for="S_id" class="control-label">Shop</label>
+        <select asp-for="S_id" asp-items="@(new SelectList(ViewBag.message,"S_id","S_location"))"></select>
+    </div>
+    <br />
+    <br />
+    <div class="col-md-8">
+
+        <label asp-for="E_name" for="Name" class="form-label">NAME</label>
+        <input asp-for="E_name" class="form-control" id="Name">
+    </div>
+    <div class="col-md-8">
+
+        <label asp-for="E_ph" for="price" class="form-label">PH</label>
+        <input asp-for="E_ph" class="form-control" id="PH">
+    </div>
+    <div class="col-md-8">
+
+        <label asp-for="E_email" for="Email" class="form-label">Email</label>
+        <input asp-for="E_email" class="form-control" id="Email">
+    </div>
+    <div class="col-md-8">
+
+        <label asp-for="E_position" for="Position" class="form-label">Position</label>
+        <input asp-for="E_position" class="form-control" id="Position">
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary" asp-controller="Shop" asp-action="SE_Delete">Edit</button>
+    </div>
+
+</form>
+

@@ -1,0 +1,36 @@
+﻿@model Shop_details
+
+@{
+    Layout = "~/Views/Shared/Shop_Layout.cshtml";
+
+}
+<hr />
+<h1>Shop Details</h1><a class="btn btn-info " asp-controller="Shop" asp-action="Shop_det">View</a>
+<form method="post" class="row g-3">
+    <div class="col-md-6">
+
+        <label asp-for="S_location" for="Name" class="form-label">Location</label>
+        <input asp-for="S_location" class="form-control" id="Name">
+        <span asp-validation-for="S_location" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+
+        <label asp-for="S_PH" for="Name" class="form-label">PH</label>
+        <input asp-for="S_PH" class="form-control" id="Name">
+        <span asp-validation-for="S_PH" class="text-danger"></span>
+
+    </div>
+    <div class="col-md-6">
+
+        <label asp-for="S_Email" for="Name" class="form-label">Email</label>
+        <input asp-for="S_Email" class="form-control" id="Name">
+        <span asp-validation-for="S_Email" class="text-danger"></span>
+
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary" asp-controller="Shop" asp-action="Sh_Delete">Delete</button>
+    </div>
+
+</form>
+

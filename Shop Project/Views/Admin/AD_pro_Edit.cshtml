@@ -1,0 +1,28 @@
+﻿@model Product
+
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h1>Create</h1>
+<a class="btn btn-info" asp-controller="Admin" asp-action="AD_Pro_det">View</a>
+<form method="post" class="row g-3">
+    <input type="hidden" asp-for="P_id" />
+
+    <div class="form-group">
+        <label asp-for="C_id" class="control-label">Category</label>
+        <select asp-for="C_id" class="form-control" asp-items="@(new SelectList(ViewBag.message, "C_id", "C_name"))"></select>
+    </div>
+    <br />
+    <div class="col-md-8">
+        <label asp-for="P_name" class="form-label">NAME</label>
+        <input asp-for="P_name" class="form-control" id="Name">
+    </div>
+    <div class="col-md-8">
+        <label asp-for="P_price" class="form-label">Price</label>
+        <input asp-for="P_price" class="form-control" id="Price">
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary" asp-controller="Admin" asp-action="AD_pro_Edit">Submit</button>
+    </div>
+</form>

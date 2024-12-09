@@ -1,0 +1,66 @@
+﻿@model PaginatedList2<View2>
+
+@{
+    Layout = "~/Views/Shared/Shop_Layout.cshtml";
+
+}
+<a asp-controller="Shop" asp-action="Sh_Sale">Register</a>
+<form method="post">
+</form>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                Location
+            </th>
+            <th>
+                Product
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Date
+            </th>
+
+           <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.S_location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.P_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.P_price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sl_date)
+                </td>
+              
+                <td>
+                    <a asp-action="AE_Edit" asp-controller="Shop" asp-route-id="@item.Sl_id">Edit</a>
+                    <a asp-action="AE_Delete" asp-route-id="@item.Sl_id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>
+
+@{
+    var preDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<a action="View_reg" asp-route-pageNumber="@(Model.PageIndex-1)" class="btn btn-outline-danger @preDisabled">
+    Previous
+</a>
+<a action="View_reg" asp-route-pageNumber="@(Model. PageIndex+1)" class="btn btn-outline-danger @nextDisabled">
+    Next
+</a>
